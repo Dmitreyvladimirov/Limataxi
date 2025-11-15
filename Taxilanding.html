@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaxiStar — Drive & Earn</title>
+  <meta name="description" content="Join TaxiStar & Yango partner fleet. Flexible hours, weekly payouts, bonuses. Apply in minutes." />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- OPTIONAL: Google Tag Manager placeholder -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900  */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e2e8f0;        /* slate-200 */
+      --brand:#22c55e;       /* green-500 */
+      --accent:#38bdf8;      /* sky-400 */
+      --danger:#ef4444;      /* red-500 */
+      --yellow:#f59e0b;      /* amber-500 */
+      --card:#0b1222;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, rgba(56,189,248,.08), transparent 60%),
+                         radial-gradient(900px 600px at -5% 10%, rgba(34,197,94,.08), transparent 60%), var(--bg);
+    }
+    a{color:var(--accent); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+    .btn{display:inline-flex; align-items:center; gap:10px; border:none; border-radius:999px; padding:14px 22px; font-weight:600; cursor:pointer; background:var(--brand); color:#06210f; box-shadow:var(--shadow);}
+    .btn.secondary{background:#1f2937; color:var(--text)}
+    .btn.link{background:transparent; color:var(--accent); padding:8px 0}
+    .chip{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(56,189,248,.15); color:#7dd3fc; font-weight:600; font-size:12px; letter-spacing:.3px}
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(6px); background:rgba(15,23,42,.7); border-bottom:1px solid rgba(148,163,184,.12)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .nav .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .nav .brand .logo{width:36px; height:36px; background:linear-gradient(135deg, var(--brand), #86efac); border-radius:9px; display:grid; place-items:center; color:#06210f; font-weight:900}
+    .nav .links{display:flex; gap:22px; align-items:center}
+    .nav .links a{color:var(--text); opacity:.85}
+
+    .hero{padding:60px 0 30px}
+    .heroGrid{display:grid; grid-template-columns: 1.35fr 1fr; gap:30px; align-items:center}
+    .card{background:linear-gradient(180deg, rgba(15,23,42,.7), rgba(2,6,23,.8)); border:1px solid rgba(148,163,184,.12); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero .copy{padding:32px}
+    h1{font-size:46px; line-height:1.05; margin:0 0 14px}
+    .lead{color:var(--muted); font-size:18px; margin:0 0 18px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .kpis{display:flex; gap:16px; margin-top:18px; flex-wrap:wrap}
+    .kpis .k{flex:1 1 150px; padding:14px 16px; border-radius:12px; background:rgba(2,6,23,.5); border:1px dashed rgba(148,163,184,.2)}
+    .k .big{font-size:22px; font-weight:800}
+    .k .sub{color:var(--muted); font-size:12px}
+
+    .phoneMock{padding:16px}
+    .mock{border-radius:28px; border:8px solid #0b1222; overflow:hidden}
+    .mock img{aspect-ratio:9/16; object-fit:cover}
+
+    .section{padding:56px 0}
+    .section h2{font-size:34px; margin:0 0 8px}
+    .section p.sub{color:var(--muted); margin:0 0 24px}
+
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .feature{padding:18px; border-radius:14px; background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.12)}
+    .feature h3{margin:10px 0 6px; font-size:18px}
+    .feature p{margin:0; color:var(--muted); font-size:14px}
+
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .step{padding:18px; border-radius:14px; background:linear-gradient(180deg, rgba(34,197,94,.08), rgba(2,6,23,.5)); border:1px solid rgba(34,197,94,.25)}
+    .step .n{display:inline-grid; place-items:center; width:34px; height:34px; border-radius:999px; background:rgba(34,197,94,.2); color:#bbf7d0; font-weight:800}
+    .step h4{margin:10px 0 6px}
+    .step p{margin:0; color:var(--muted); font-size:14px}
+
+    .benefits{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+
+    .faq{display:grid; grid-template-columns:1fr; gap:12px; max-width:900px}
+    details{background:rgba(2,6,23,.5); border:1px solid rgba(148,163,184,.2); border-radius:12px; padding:14px}
+    details summary{cursor:pointer; font-weight:600}
+    details p{color:var(--muted)}
+
+    .formWrap{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+    form{display:grid; gap:12px}
+    label{font-size:14px; color:var(--muted)}
+    input, select, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.25); background:#0b1222; color:var(--text)}
+    .notice{font-size:12px; color:var(--muted)}
+    .toast{position:fixed; right:24px; bottom:24px; padding:12px 16px; border-radius:12px; background:#052e1a; color:#d1fae5; border:1px solid rgba(16,185,129,.3); display:none}
+    .toast.error{background:#3b0c0c; color:#fecaca; border-color:rgba(248,113,113,.35)}
+
+    .stickyActions{position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:10px}
+    .stickyActions a{display:inline-flex; align-items:center; gap:10px; background:#1f2937; color:#fff; padding:10px 14px; border-radius:999px}
+
+    footer{padding:40px 0; border-top:1px solid rgba(148,163,184,.12); color:var(--muted)}
+
+    @media (max-width:980px){
+      .heroGrid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .benefits{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .formWrap{grid-template-columns:1fr}
+    }
+    @media (max-width:580px){
+      .features,.benefits{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- OPTIONAL: GTM noscript placeholder
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  -->
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">★</div>
+        <div id="siteTitle">TaxiStar</div>
+      </div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container heroGrid">
+        <div class="card copy">
+          <span class="chip" id="chip">Partner fleet — Yango</span>
+          <h1 id="headline">Drive with us. Earn weekly. Own your time.</h1>
+          <p class="lead" id="subhead">Flexible shifts and high demand. Bonuses for top drivers. Start in 24–48 hours after approval.</p>
+          <div class="ctaRow">
+            <a class="btn" href="#apply">Apply now</a>
+            <a class="btn secondary" href="#faq">Got questions?</a>
+          </div>
+          <div class="kpis">
+            <div class="k"><div class="big" id="kpi1">Up to 6000 GHS/mo*</div><div class="sub">Potential earnings with bonuses</div></div>
+            <div class="k"><div class="big" id="kpi2">+500 GHS</div><div class="sub">Referral bonus</div></div>
+            <div class="k"><div class="big" id="kpi3">48h</div><div class="sub">Average onboarding time</div></div>
+          </div>
+        </div>
+        <div class="card phoneMock">
+          <div class="mock">
+            <!-- Replace the image below with your app screenshot or promo photo -->
+            <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?q=80&w=1200&auto=format&fit=crop" alt="App preview" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2>Why drive with TaxiStar</h2>
+        <p class="sub">Modern fleet management, fast support, and weekly payouts. We’re a partner fleet for ride‑hailing platforms (e.g., Yango).</p>
+        <div class="features">
+          <div class="feature">
+            <div class="chip">Earnings</div>
+            <h3>Competitive rates</h3>
+            <p>Transparent commissions and weekly payouts to your mobile money / bank.</p>
+          </div>
+          <div class="feature">
+            <div class="chip">Support</div>
+            <h3>Driver care</h3>
+            <p>Training, 24/7 chat, and fast problem resolution so you can stay on the road.</p>
+          </div>
+          <div class="feature">
+            <div class="chip">Flexibility</div>
+            <h3>Work your schedule</h3>
+            <p>Choose your hours and earn more with peak‑time boosts and bonuses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="requirements">
+      <div class="container">
+        <h2>Requirements</h2>
+        <p class="sub">Basic checks to keep riders and drivers safe. Exact criteria vary by city.</p>
+        <div class="benefits">
+          <div class="feature">
+            <h3>Valid driver’s license</h3>
+            <p>Minimum 1 year driving experience recommended.</p>
+          </div>
+          <div class="feature">
+            <h3>Vehicle or rental option</h3>
+            <p>Bring your own car or start with our rental program (limited availability).</p>
+          </div>
+          <div class="feature">
+            <h3>Clean background</h3>
+            <p>ID verification and standard background checks may apply.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="sub">Get started in four simple steps.</p>
+        <div class="steps">
+          <div class="step">
+            <span class="n">1</span>
+            <h4>Apply online</h4>
+            <p>Send us your details. It takes ~3 minutes.</p>
+          </div>
+          <div class="step">
+            <span class="n">2</span>
+            <h4>Upload documents</h4>
+            <p>License, ID and vehicle docs (if any).</p>
+          </div>
+          <div class="step">
+            <span class="n">3</span>
+            <h4>Get approved</h4>
+            <p>We review your profile and activate your account.</p>
+          </div>
+          <div class="step">
+            <span class="n">4</span>
+            <h4>Start earning</h4>
+            <p>Go online and pick trips. Weekly payouts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apply">
+      <div class="container">
+        <h2>Apply now</h2>
+        <p class="sub">Fill the form and our team will contact you on WhatsApp/phone. By submitting you agree to be contacted about this application.</p>
+        <div class="formWrap">
+          <form id="leadForm" class="card" novalidate>
+            <div>
+              <label for="name">Full name*</label>
+              <input id="name" name="name" required placeholder="e.g., John Mensah" />
+            </div>
+            <div>
+              <label for="phone">Phone / WhatsApp*</label>
+              <input id="phone" name="phone" required placeholder="+233..." />
+            </div>
+            <div>
+              <label for="city">City*</label>
+              <input id="city" name="city" required placeholder="Accra, Kumasi, ..." />
+            </div>
+            <div>
+              <label for="experience">Driving experience</label>
+              <select id="experience" name="experience">
+                <option value="new">I'm new to ride‑hailing</option>
+                <option value="1y">1–2 years</option>
+                <option value="3y">3+ years</option>
+              </select>
+            </div>
+            <div>
+              <label for="car">Do you have a car?</label>
+              <select id="car" name="car">
+                <option value="yes">Yes, my own</option>
+                <option value="rent">I need a rental</option>
+                <option value="no">Not yet</option>
+              </select>
+            </div>
+            <div>
+              <label for="notes">Notes (optional)</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Preferred schedule, car model, referral code, etc."></textarea>
+            </div>
+            <div>
+              <label class="notice"><input type="checkbox" id="consent" required /> I agree to the processing of my personal data for the purpose of this application.</label>
+            </div>
+            <div>
+              <button class="btn" type="submit">Submit application</button>
+            </div>
+            <p class="notice">* Required fields. We will never share your data without your consent.</p>
+          </form>
+          <div class="card" style="padding:18px">
+            <h3>What happens next?</h3>
+            <ul>
+              <li>Our recruiter will message you on WhatsApp within 24–48 hours.</li>
+              <li>You’ll receive a link to upload your documents securely.</li>
+              <li>After approval, you can start driving and earning.</li>
+            </ul>
+            <div style="margin-top:16px">
+              <a class="btn secondary" href="https://wa.me/233570000085" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+            <p class="notice" style="margin-top:10px">WhatsApp number and links can be changed in the config below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>When will I receive payouts?</summary>
+            <p>Usually weekly. Exact schedule depends on your city and payout method.</p>
+          </details>
+          <details>
+            <summary>Can I rent a car?</summary>
+            <p>Yes, limited rental cars are available. Share your interest in the form and our team will follow up.</p>
+          </details>
+          <details>
+            <summary>Is there a signup bonus?</summary>
+            <p>Occasional promotions may offer referral or signup bonuses. We’ll inform you if you qualify.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="stickyActions">
+    <a id="whatsappBtn" href="https://wa.me/233570000085" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a id="callBtn" href="tel:+233570000085">📞 Call us</a>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap">
+        <div>© <span id="year"></span> <span id="footerBrand">TaxiStar</span>. All rights reserved.</div>
+        <div class="notice">*Earnings and bonus amounts may vary by time and city.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- ======= CONFIG & INTEGRATION HOOKS =======
+       Everything below is intentionally simple and editable.
+       1) Replace CRM_WEBHOOK with your endpoint to receive leads.
+       2) Adjust WHATSAPP / PHONE, and all visible texts in content.
+       3) You can also host content.json and fetch it here for non‑dev edits.
+  -->
+  <script>
+    const CONFIG = {
+      CRM_WEBHOOK: 'https://your-crm.example.com/webhooks/lead', // <-- Replace with your CRM/Make/n8n/Airtable webhook
+      WHATSAPP: 'https://wa.me/233570000085',
+      PHONE: '+233570000085',
+      CONTENT: {
+        siteTitle: 'TaxiStar',
+        headline: 'Drive with us. Earn weekly. Own your time.',
+        subhead: 'Flexible shifts and high demand. Bonuses for top drivers. Start in 24–48 hours after approval.',
+        kpi1: 'Up to 6000 GHS/mo*',
+        chip: 'Partner fleet — Yango'
+      }
+    };
+
+    // Apply basic dynamic content without a framework
+    function applyContent(){
+      const { CONTENT, WHATSAPP, PHONE } = CONFIG;
+      const map = [
+        ['siteTitle','siteTitle'], ['headline','headline'], ['subhead','subhead'], ['kpi1','kpi1'], ['chip','chip']
+      ];
+      map.forEach(([key,id])=>{ const el=document.getElementById(id); if(el && CONTENT[key]) el.textContent = CONTENT[key]; });
+      const w=document.getElementById('whatsappBtn'); if(w) w.href = WHATSAPP;
+      const c=document.getElementById('callBtn'); if(c) c.href = 'tel:'+PHONE;
+      const y=document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+      document.getElementById('footerBrand').textContent = CONTENT.siteTitle || 'TaxiStar';
+    }
+    applyContent();
+
+    // Simple toast helper
+    function showToast(msg, error=false){
+      const t=document.getElementById('toast');
+      t.textContent = msg; t.className = 'toast' + (error?' error':''); t.style.display='block';
+      setTimeout(()=>{t.style.display='none'}, 4200);
+    }
+
+    // Lead form → POST to CRM_WEBHOOK as JSON
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
+      payload.consent = document.getElementById('consent').checked;
+      payload.source = 'taxistar-landing';
+      try{
+        const res = await fetch(CONFIG.CRM_WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        showToast('Thanks! We\'ll contact you shortly.');
+        form.reset();
+      }catch(err){
+        console.error(err);
+        showToast('Could not submit. Please try WhatsApp.', true);
+      }
+    });
+
+    // OPTIONAL: load external content.json for no‑code edits
+    // Place a content.json next to index.html and uncomment below to auto‑load
+    // fetch('./content.json').then(r=>r.json()).then(data=>{ CONFIG.CONTENT = data; applyContent(); });
+  </script>
+</body>
+</html>
